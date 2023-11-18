@@ -1,7 +1,9 @@
 import csv
+import Edit as edit
 
-with open('test.csv', 'w', newline='') as csvfile:
-        filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        filewriter.writerow(['Date Posted', 'Name', 'Amount($)', 'Category', 'Card Used'])
-        
-        filewriter.writerow(['2023-11-08', 'test', 8, 'Food', 'Debit'])
+edit.create_csv('test.csv', ['Date Posted', 'Name', 'Amount($)', 'Category', 'Card Used'])
+
+with open('test.csv') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
