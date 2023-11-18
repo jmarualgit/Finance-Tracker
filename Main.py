@@ -1,9 +1,7 @@
 import csv
 import Edit as edit
+import Read as read
 
 edit.create_csv('test.csv', ['Date Posted', 'Name', 'Amount($)', 'Category', 'Card Used'])
 
-with open('test.csv') as f:
-    reader = csv.reader(f)
-    for row in reader:
-        print(row)
+read.read_csv('test.csv')
