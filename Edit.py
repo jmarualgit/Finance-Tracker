@@ -1,5 +1,4 @@
 import csv
-
 import pandas as pd
 
 def create_csv(fileName, fileLabels):
@@ -15,6 +14,8 @@ def add_row(fileName, data):
 # row number will be +1 what is listed on the left bc of the label on line 1
 def edit_row(fileName, rowNumber, columnName, newValue):
     df = pd.read_csv(fileName)
+    
+    # loc locates/accesses the specific part of the dataframe
     df.loc[rowNumber, columnName] = newValue
     
     df.to_csv(fileName, index=False, header=True)
