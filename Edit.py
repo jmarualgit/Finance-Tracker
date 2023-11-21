@@ -1,5 +1,6 @@
 import csv
 import pandas as pd
+import glob
 
 def create_csv(fileName, fileLabels):
     with open(fileName, 'w', newline='') as csvfile:
@@ -19,3 +20,17 @@ def edit_row(fileName, rowNumber, columnName, newValue):
     df.loc[rowNumber, columnName] = newValue
     
     df.to_csv(fileName, index=False, header=True)
+
+def merge_csv(path, string):
+    statements = glob.glob(f'{path}/{string}')
+    
+    combinedDataFrame = []
+    
+    for statement in statements:
+        
+        new_dataframe = pd.read_csv(statement)
+        combinedDataFrame.append(new_dataframe)
+    
+    df = pd.concat(combinedDataFrame)
+    
+    df.to_csv('data.csv', index=False)
