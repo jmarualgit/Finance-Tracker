@@ -22,6 +22,9 @@ def edit_row(fileName, rowNumber, columnName, newValue):
     df.to_csv(fileName, index=False, header=True)
 
 def merge_csv(path, string):
+    
+    # sample string would be stmt*
+        # gets all files that start with stmt
     statements = glob.glob(f'{path}/{string}')
     
     combinedDataFrame = []
